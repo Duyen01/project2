@@ -65,14 +65,12 @@ class BillController extends Controller
     }
     public function store(Request $request)
     {
-
-
         $data = $request->only('idStudent', 'idTypePay', 'idAdmin', 'money', 'note');
         // $idStudent = $request->get('idStudent');
         // // $idStudent = $request->get('idStudent');
         // die($idStudent);
         if(Bill::create($data)){
-            return redirect()->route('bill.index');
+            return redirect()->route('bill.index')->with('success','Add bill success');;
         }
     }
     public function detail($id)

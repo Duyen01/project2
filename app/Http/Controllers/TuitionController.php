@@ -50,29 +50,34 @@ class TuitionController extends Controller
         return redirect()->route('tuition.index')->with('success','Create tuition success');
     }
 
-    public function edit($idCourse, $idMajor)
+    public function edit(Request $request)
     {
         //
-        $tuition = Tuition::where('idCourse',$idCourse)
-        ->where('idMajor',$idMajor)->first();
-        return view('admin.tuition.edit', compact('tuition'));
+        $idCourse = $request->idCourse;
+        $idMajor = $request->idMajor;
+        // dd($idMajor);
+        // $tuition = Tuition::where('idCourse',$idCourse)->where('idMajor',$idMajor)->first();
+        $tuition = Tuition::where([['idCourse','=',$idCourse],['idMajor','=', $idMajor]])->first();
+
+        // dd($tuition);
+        // return view('admin.tuition.edit', compact('tuition'));
+        return response()->json(['tuition'=>$tuition]);
     }
 
      public function update(Request $request)
     {
         //
         $this->validate($request,[
-            'idCourse' => 'required',
-            'idMajor' => 'required',
+            // 'idCourse' => 'required',
+            // 'idMajor' => 'required',
             'tuitionNorm' => 'required',
         ]);
-        $tuition = new Tuition();
-        $tuition -> idCourse = $request->get('idCourse');
-        $tuition -> idMajor = $request->get('idMajor');
-        $tuition -> tuitionNorm = $request-> get('tuitionNorm');
-        $tuition -> save();
-        return redirect()->route('tuition.index')->with('success','Update tuition success');
-        
+        $idCourse = $request->courseUpdate;
+        $idMajor = $request->majorUpdate;
+        $tuitionNorm = $request->tuitionNorm;
+        Tuition::where(['idCourse' => $idCourse, 'idMajor' => $idMajor])->update($request->only('tuitionNorm'));
+
+        return response()->json(['success' => 'Update tuition success']);
     }
 
 

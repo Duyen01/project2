@@ -46,3 +46,6 @@
         {{$data -> appends(request()->all())->links()}}
     </div>
     @stop()
+
+
+    

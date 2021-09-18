@@ -29,6 +29,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+<link rel="stylesheet" href="{{ asset('ad/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+<!-- Toastr -->
+{{-- <link rel="stylesheet" href="{{ asset('ad/plugins/toastr/toastr.min.css') }}">
+
+<link rel="stylesheet" href="{{ asset('ad/dist/css/adminlte.min.css') }}> --}}
 @yield('css')
 </head>
 
@@ -56,7 +62,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="#"><img src="{{ asset('site/img/logo.png') }}" alt=""></a>
+            <a href="#"><img src="{{ asset('site/img/logo_bkacad.png') }}" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
     </div>
@@ -144,7 +150,7 @@
                 <div class="footer__copyright">
                     <div class="footer__copyright__text"><p><script>document.write(new date().getfullyear());</script><i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">colorlib</a>
                         <!-- link back to colorlib can't be removed. template is licensed under cc by 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="{{ asset('site/img/payment-item.png') }}" alt=""></div>
+                        {{-- <div class="footer__copyright__payment"><img src="{{ asset('site/img/payment-item.png') }}" alt=""></div> --}}
                     </div>
                 </div>
             </div>
@@ -162,7 +168,25 @@
     <script src="{{ asset('site/js/mixitup.min.js') }}"></script>
     <script src="{{ asset('site/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('site/js/main.js') }}"></script>
+<!-- jQuery -->
 
+{{-- <script src="{{ asset('ad/plugins/jquery/jquery.min.js') }}"></script> --}}
+<!-- Bootstrap 4 -->
+/
+{{-- <script src="{{ asset('ad/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
+<!-- SweetAlert2 -->
+
+{{-- <script src="{{ asset('ad/plugins/sweetalert2/sweetalert2.min.js') }}"></script> --}}
+<!-- Toastr -->
+
+{{-- <script src="{{ asset('ad/plugins/toastr/toastr.min.js') }}"></script> --}}
+<!-- AdminLTE App -->
+{{-- /dist/js/adminlte.min.js --}}
+{{-- <script src="{{ asset('ad/dist/js/adminlte.min.js') }}"></script> --}}
+<!-- AdminLTE for demo purposes -->
+{{-- dist/js/demo.js --}}
+{{-- <script src="{{ asset('ad/dist/js/demo.js') }}"></script>  --}}
+<!-- Page specific script -->
 </body>
 
 </html>

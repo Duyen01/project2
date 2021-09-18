@@ -95,7 +95,7 @@ class StudentController extends Controller
     }  
     public function changePassword(Request $request)
     {
-        $validator = \Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'oldpassword' => 'required',
             'password' => 'required|confirmed',
             'password_confirmation' => 'required',   
@@ -105,11 +105,17 @@ class StudentController extends Controller
         {
             return response()->json(['errors'=>$validator->errors()->all()]);
         }
-        $student= new Student();
-       
-        $student->password=$request->get('password');
-       
-        $student->save();
+        // $student= new Student();
+    //    $student = $request->password;
+        // $student->password=$request->get('password');
+        $id = $request->session()->get('student.id');
+        // dd($id);
+        $student = Student::find($id);
+
+        // $student->update($request->only('password'));
+        $password = Hash::make($request->password);
+        $request->merge(['password' => $password]);
+        $student->update($request->only('password'));
    
         return response()->json(['success'=>'Data is successfully added']);
     }

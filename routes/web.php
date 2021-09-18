@@ -70,7 +70,7 @@ Route::prefix('admin')->group(function(){
         //Tuition resource
         // Route::resource('tuition', TuitionController::class);
        //Tuition
-        Route::get('tuition/edit/{idCourse,idMajor}', [TuitionController::class,'edit'])->name('tuition.edit');
+        Route::post('tuition/edit', [TuitionController::class,'edit'])->name('tuition.edit');
         Route::get('tuition/create', [TuitionController::class,'create'])->name('tuition.create');
         Route::get('tuition/index', [TuitionController::class,'index'])->name('tuition.index');
         Route::post('tuition/store', [TuitionController::class,'store'])->name('tuition.store');
